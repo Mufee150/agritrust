@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import Card from '../ui/Card'
 
 function sendMockOTP(phone: string) {
-  // save to localStorage for demo
   const code = '1234'
   localStorage.setItem('mock_otp', code)
   localStorage.setItem('mock_phone', phone)
@@ -29,7 +29,6 @@ export default function AuthOTP() {
     if (otp === stored) {
       localStorage.setItem('ag_role', role || 'customer')
       localStorage.setItem('ag_phone', phone || localStorage.getItem('mock_phone') || '')
-      // route based on role
       switch (role) {
         case 'farmer':
           return nav('/farmer/profile')
@@ -47,30 +46,38 @@ export default function AuthOTP() {
   }
 
   return (
-    <div className="screen container">
-      <h2>{role?.toUpperCase() || 'Auth'} Login</h2>
-      <label className="field">
-        <div>Phone number</div>
-        <input value={phone} onChange={e => setPhone(e.target.value)} placeholder="10-digit mobile" />
-      </label>
-      <div className="actions">
-        <button onClick={request}>Send OTP</button>
-      </div>
+    <div className="screen container flex items-center justify-center">
+      <Card>
+        <div className="w-full max-w-md">
+          <h2 className="text-xl font-bold mb-2">{role?.toUpperCase() || 'Auth'} Login</h2>
+          <p className="text-sm text-gray-500 mb-4">Enter your phone number to receive a one-time code.</p>
 
-      {sent && (
-        <div className="otp-area">
-          <label className="field">
-            <div>Enter OTP</div>
-            <input value={otp} onChange={e => setOtp(e.target.value)} placeholder="1234" />
+          <label className="block mb-3">
+            <div className="text-sm mb-1">Phone number</div>
+            <input className="input input-bordered w-full" value={phone} onChange={e => setPhone(e.target.value)} placeholder="10-digit mobile" />
           </label>
-          <div className="actions">
-            <button onClick={verify}>Verify</button>
-            <button onClick={() => { setSent(false); setOtp('') }}>Cancel</button>
-          </div>
-        </div>
-      )}
 
-      {err && <div className="error">{err}</div>}
+          <div className="flex gap-3 mb-3">
+            <button className="btn btn-primary" onClick={request}>Send OTP</button>
+            <button className="btn btn-ghost" onClick={() => nav(-1)}>Back</button>
+          </div>
+
+          {sent && (
+            <div className="mt-3">
+              <label className="block mb-2">
+                <div className="text-sm mb-1">Enter OTP</div>
+                <input className="input input-bordered w-full" value={otp} onChange={e => setOtp(e.target.value)} placeholder="1234" />
+              </label>
+              <div className="flex gap-3">
+                <button className="btn btn-success" onClick={verify}>Verify</button>
+                <button className="btn btn-outline" onClick={() => { setSent(false); setOtp('') }}>Cancel</button>
+              </div>
+            </div>
+          )}
+
+          {err && <div className="text-error mt-3">{err}</div>}
+        </div>
+      </Card>
     </div>
   )
 }

@@ -1,39 +1,74 @@
+/* Modern mobile-first global styles for AgriTrust Hub */
 :root{
-  --bg:#fcfcfb;
+  --bg:linear-gradient(180deg,#f7fbf8,#f3faf6 60%);
   --muted:#6b7280;
-  --primary:#2b9348;
+  --accent:#2b9348; /* primary green */
+  --accent-2:#1f6f3a;
   --card:#ffffff;
+  --glass: rgba(255,255,255,0.6);
+  --shadow: 0 6px 20px rgba(16,24,40,0.08);
 }
 *{box-sizing:border-box}
 html,body,#root{height:100%}
-body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:#111}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:#0f172a;-webkit-font-smoothing:antialiased}
+
+/* Layout primitives */
 .screen{min-height:100vh;padding:20px}
+.container{max-width:980px;margin:0 auto}
 .center{display:flex;flex-direction:column;align-items:center;justify-content:center}
-.logo{font-size:48px;margin-bottom:8px}
-h1{margin:0;font-size:22px}
-.tagline{color:var(--muted);margin-top:6px}
-.loader{width:36px;height:6px;margin-top:18px;border-radius:6px;background:linear-gradient(90deg,var(--primary),#8fd19e);animation:load 1.2s infinite}
-@keyframes load{0%{transform:scaleX(.2);opacity:.6}50%{transform:scaleX(1);opacity:1}100%{transform:scaleX(.2);opacity:.6}}
 
-.container{max-width:720px;margin:0 auto}
+/* Header / brand */
+.brand{display:flex;align-items:center;gap:12px}
+.logo{font-size:28px;font-weight:700;color:var(--accent-2)}
+h1{margin:0;font-size:18px}
+.tagline{color:var(--muted);margin-top:4px;font-size:13px}
+
+/* subtle loader */
+.loader{width:44px;height:8px;border-radius:8px;background:linear-gradient(90deg,var(--accent),#86d089);animation:load 1.2s infinite}
+@keyframes load{0%{transform:scaleX(.25);opacity:.6}50%{transform:scaleX(1);opacity:1}100%{transform:scaleX(.25);opacity:.6}}
+
+/* Cards and roles */
+.card{background:var(--card);border-radius:14px;padding:14px;box-shadow:var(--shadow);border:1px solid rgba(15,23,42,0.04)}
 .role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.role-card{display:flex;gap:10px;align-items:center;padding:12px;border-radius:10px;background:var(--card);border:1px solid #eee}
-.role-icon{font-size:28px}
-.role-title{font-weight:600}
-.role-desc{color:var(--muted);font-size:12px}
+.role-card{display:flex;gap:12px;align-items:center;padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.9),var(--glass));border:1px solid rgba(15,23,42,0.03);transition:transform .18s ease,box-shadow .18s ease;cursor:pointer}
+.role-card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(16,24,40,0.12)}
+.role-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#74c27b);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px}
+.role-info{display:flex;flex-direction:column}
+.role-title{font-weight:700}
+.role-desc{color:var(--muted);font-size:13px}
 
-.field{margin-top:12px}
-.field input{width:100%;padding:10px;border-radius:8px;border:1px solid #ddd}
-.actions{margin-top:14px;display:flex;gap:8px}
-button{background:var(--primary);color:#fff;padding:10px 12px;border-radius:8px;border:0}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+/* Form fields */
+.field{margin-top:14px}
+.field label{display:block;font-size:13px;color:#0f172a;margin-bottom:6px}
+.field input, .field select, .field textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(15,23,42,0.06);background:linear-gradient(180deg,#fff,#fbfbfb);outline:none;transition:border-color .12s ease,box-shadow .12s ease}
+.field input:focus, .field textarea:focus{border-color:var(--accent);box-shadow:0 4px 18px rgba(43,147,72,0.12)}
+
+.actions{margin-top:16px;display:flex;gap:10px}
+button{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#fff;padding:10px 14px;border-radius:10px;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(37,99,42,0.12);transition:transform .12s ease,box-shadow .12s ease}
+button:hover{transform:translateY(-3px);box-shadow:0 16px 32px rgba(37,99,42,0.14)}
+
+.secondary{background:transparent;color:var(--accent-2);border:1px solid rgba(31,111,58,0.08)}
+
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .muted{color:var(--muted);font-size:13px}
 .error{color:#b91c1c;margin-top:8px}
 .success{color:#059669;margin-top:8px}
-.map-placeholder{height:140px;background:#eef;border-radius:8px;display:flex;align-items:center;justify-content:center;border:1px dashed #cbd5e1}
-.file-preview img{max-width:120px;border-radius:6px;margin-top:8px}
+
+.map-placeholder{height:160px;background:linear-gradient(180deg,#eef7ee,#f6fff7);border-radius:10px;display:flex;align-items:center;justify-content:center;border:1px dashed rgba(15,23,42,0.06)}
+.file-preview img{max-width:140px;border-radius:8px;margin-top:8px;box-shadow:0 8px 20px rgba(16,24,40,0.06)}
+
+/* small utilities */
+.muted-small{color:var(--muted);font-size:12px}
+.kbd{display:inline-block;padding:4px 8px;border-radius:6px;background:#f3f4f6;border:1px solid rgba(15,23,42,0.04);font-size:12px}
 
 @media(min-width:720px){
   .role-grid{grid-template-columns:repeat(3,1fr)}
   .grid{grid-template-columns:repeat(4,1fr)}
+  .container{padding:20px}
+}
+
+/* small responsive tweaks for very small screens */
+@media(max-width:360px){
+  .role-icon{width:40px;height:40px;font-size:16px}
+  .logo{font-size:24px}
 }

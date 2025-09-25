@@ -20,6 +20,7 @@ import BuyerDashboard from './pages/buyer/BuyerDashboard.tsx'
 import ContractOffers from './pages/buyer/ContractOffers.tsx'
 import AdminLogin from './pages/admin/AdminLogin.tsx'
 import AdminDashboard from './pages/admin/AdminDashboard.tsx'
+import Reports from './pages/Reports'
 
 export default function App() {
   return (
@@ -48,6 +49,7 @@ export default function App() {
       <Route path="/buyer/offers" element={<ContractOffers />} />
       <Route path="/admin/login" element={<AdminLogin />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
+  <Route path="/reports" element={<Reports />} />
     </Routes>
   )
 }
