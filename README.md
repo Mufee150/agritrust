@@ -40,25 +40,67 @@ AgriTrust is a comprehensive platform connecting farmers, customers, investors, 
   - TailwindCSS for styling
   - React Router for navigation
 
-## 💻 Local Development
+- **Backend (Planned):**
+  - **Node.js & Express.js:** For building the RESTful API.
+  - **MongoDB:** As the NoSQL database to store user and farm data.
+  - **Mongoose:** To model application data.
+  - **JSON Web Tokens (JWT):** For handling secure user authentication.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Mufee150/agritrust.git
-   ```
+## 📂 Project Structure
 
-2. Install dependencies:
-   ```bash
-   cd frontend
-   npm install
-   ```
+The repository is organized as a monorepo with separate directories for the frontend and backend.
 
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
+```
+/
+├── .github/      # GitHub Actions workflows
+├── frontend/     # React + Vite client application
+└── backend/      # (Planned) Node.js + Express API server
+```
 
-4. Open [http://localhost:5173](http://localhost:5173) in your browser
+##  Local Development
+
+### Prerequisites
+
+Make sure you have the following installed on your system:
+- [Node.js](https://nodejs.org/) (v18 or later)
+- [npm](https://www.npmjs.com/) (comes with Node.js)
+- [Git](https://git-scm.com/)
+
+### Setup
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/Mufee150/agritrust.git
+    cd agritrust
+    ```
+
+2.  **Set up the Frontend:**
+    ```bash
+    cd frontend
+    npm install
+    ```
+
+3.  **Set up the Backend (when available):**
+    ```bash
+    cd ../backend
+    npm install
+    ```
+
+### Running the Application
+
+You will need to run the frontend and backend servers in separate terminals.
+
+1.  **Start the Backend Server (from the `backend` directory):**
+    ```bash
+    npm start
+    ```
+
+2.  **Start the Frontend Development Server (from the `frontend` directory):**
+    ```bash
+    npm run dev
+    ```
+
+The frontend will be available at http://localhost:5173 and will connect to the backend API.
 
 ## 🌐 Live Demo
 
