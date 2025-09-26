@@ -7,9 +7,8 @@ This folder contains the React + Vite frontend for AgriTrust Hub (mobile-first U
 Requirements: Node 18+ and npm
 
 1. Install dependencies
-
-```powershell
-cd "C:\Users\mufeedha aliyar\OneDrive\Desktop\agri_trust\frontend"
+```bash
+# Make sure you are in the frontend directory
 npm install
 ```
 
