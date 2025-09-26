@@ -1,6 +1,7 @@
 # AgriTrust - Agricultural Trust Platform
 
 AgriTrust is a comprehensive platform connecting farmers, customers, investors, and buyers in the agricultural ecosystem. The platform facilitates transparent transactions, investment opportunities, and supply chain management.
+DEMO LINK:https://mufee150.github.io/agritrust/#/roles
 
 ## 🌟 Features
 
@@ -92,22 +93,6 @@ Visit our live demo at: [https://mufee150.github.io/agritrust/](https://mufee150
 - [ ] Blockchain integration for supply chain
 - [ ] Multi-language support
 
-## 🤝 Contributing
 
-We welcome contributions! Please feel free to submit a Pull Request.
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Team
-
-- UI/UX Design
-- Frontend Development
-- Project Management
-- Quality Assurance
-
-## 📞 Contact
-
-For any queries, please raise an issue or contact the maintainers:
-- GitHub: [@Mufee150](https://github.com/Mufee150)
