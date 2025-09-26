@@ -1,7 +1,7 @@
 # AgriTrust - Agricultural Trust Platform
 
 AgriTrust is a comprehensive platform connecting farmers, customers, investors, and buyers in the agricultural ecosystem. The platform facilitates transparent transactions, investment opportunities, and supply chain management.
-DEMO LINK:https://mufee150.github.io/agritrust/#/roles
+
 
 ## 🌟 Features
 
